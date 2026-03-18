@@ -174,12 +174,17 @@ void parser_material_finalize(node_shader_context_t *con) {
 	}
 	if (kong->frag_mouse) {
 		node_shader_add_constant(kong, "mouse_pos: float2", "_mouse_pos");
+		node_shader_add_constant(kong, "prev_mouse_pos: float2", "_prev_mouse_pos");
 		node_shader_add_constant(kong, "mouse_inv_vp: float4x4", "_inv_view_proj_matrix");
 		node_shader_add_constant(kong, "eye: float3", "_camera_pos");
 		node_shader_write_attrib_frag(kong, "var mouse_ndc: float4 = float4(constants.mouse_pos.x * 2.0 - 1.0, 1.0 - constants.mouse_pos.y * 2.0, 0.0, 1.0);");
 		node_shader_write_attrib_frag(kong, "mouse_ndc = constants.mouse_inv_vp * mouse_ndc;");
 		node_shader_write_attrib_frag(kong, "mouse_ndc.xyz = mouse_ndc.xyz / mouse_ndc.w;");
 		node_shader_write_attrib_frag(kong, "var mouse_dir: float3 = normalize(mouse_ndc.xyz - constants.eye);");
+		node_shader_write_attrib_frag(kong, "var stroke_screen: float2 = float2(constants.mouse_pos.x - constants.prev_mouse_pos.x, constants.prev_mouse_pos.y - constants.mouse_pos.y);");
+		node_shader_write_attrib_frag(kong, "var stroke_screen_len: float = length(stroke_screen);");
+		node_shader_write_attrib_frag(kong, "stroke_screen = stroke_screen_len > 0.0001 ? stroke_screen / stroke_screen_len : float2(1.0, 0.0);");
+		node_shader_write_attrib_frag(kong, "var mouse_stroke: float3 = float3(stroke_screen.x * 0.5 + 0.5, stroke_screen.y * 0.5 + 0.5, 0.5);");
 	}
 	if (kong->frag_n) {
 		node_shader_add_constant(kong, "N: float3x3", "_normal_matrix");

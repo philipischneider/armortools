@@ -11,7 +11,10 @@ char *mouse_input_node_vector(ui_node_t *node, ui_node_socket_t *socket) {
 	if (socket == node->outputs->buffer[0]) { // Position
 		return "float3(constants.mouse_pos.x, constants.mouse_pos.y, 0.0)";
 	}
-	else { // Direction
+	else if (socket == node->outputs->buffer[1]) { // Direction
 		return "mouse_dir";
+	}
+	else { // Stroke Direction (UV-encoded for flow maps)
+		return "mouse_stroke";
 	}
 }
