@@ -7,6 +7,8 @@ i32 sys_w(void);
 i32 sys_h(void);
 i32 sys_x(void);
 i32 sys_y(void);
+extern f32 mouse_x;
+extern f32 mouse_y;
 f32 sys_time(void);
 
 gpu_pipeline_t *_mesh_object_last_pipeline   = NULL;
@@ -1533,6 +1535,10 @@ bool uniforms_set_context_const(i32 location, shader_const_t *c) {
 		else if (string_equals(c->link, "_vec2y3_inv")) {
 			v.x = 0.0;
 			v.y = 3.0f / render_path_current_h;
+		}
+		else if (string_equals(c->link, "_mouse_pos")) {
+			v.x = (mouse_x - (f32)sys_x()) / (f32)sys_w();
+			v.y = (mouse_y - (f32)sys_y()) / (f32)sys_h();
 		}
 		else if (string_equals(c->link, "_screen_size")) {
 			v.x = (f32)render_path_current_w;

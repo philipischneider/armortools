@@ -1013,6 +1013,7 @@ fun tex_gabor(co: float3, scale: float, frequency: float, anisotropy: float, ori
 ui_node_t                   *gabor_texture_node_def;
 ui_node_t                   *mix_normal_map_node_def;
 ui_node_t                   *camera_data_node_def;
+ui_node_t                   *mouse_input_node_def;
 ui_node_t                   *script_node_def;
 ui_node_t                   *combine_xyz_node_def;
 char                        *str_tex_noise = "\

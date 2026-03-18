@@ -988,6 +988,8 @@ char                        *mix_normal_map_node_vector(ui_node_t *node, ui_node
 void                         camera_data_node_init();
 char                        *camera_data_node_vector(ui_node_t *node, ui_node_socket_t *socket);
 char                        *camera_data_node_value(ui_node_t *node, ui_node_socket_t *socket);
+void                         mouse_input_node_init();
+char                        *mouse_input_node_vector(ui_node_t *node, ui_node_socket_t *socket);
 void                         script_node_init();
 char                        *script_node_value(ui_node_t *node, ui_node_socket_t *socket);
 void                         combine_xyz_node_init();

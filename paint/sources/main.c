@@ -43,6 +43,7 @@
 #include "material_nodes/layer_node.c"
 #include "material_nodes/layer_weight_node.c"
 #include "material_nodes/magic_texture_node.c"
+#include "material_nodes/mouse_input_node.c"
 #include "material_nodes/map_range_node.c"
 #include "material_nodes/mapping_node.c"
 #include "material_nodes/material_node.c"

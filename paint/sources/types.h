@@ -440,6 +440,7 @@ typedef struct node_shader {
 	bool frag_wtangent;
 	bool frag_vvec;
 	bool frag_vvec_cam;
+	bool frag_mouse;
 	bool frag_n;
 	bool frag_nattr;
 	bool frag_dotnv;

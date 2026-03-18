@@ -11,6 +11,7 @@ void nodes_material_init() {
 	gc_root(nodes_material_input);
 	attribute_node_init();
 	camera_data_node_init();
+	mouse_input_node_init();
 	rgb_node_init(); // color_node_init
 	fresnel_node_init();
 	geometry_node_init();

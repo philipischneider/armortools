@@ -1,4 +1,8 @@
 **/build*/
+**/out/
+**/x64/
+**/temp/
 .vscode
 *.DS_Store
 *.blend1
+*.bak
